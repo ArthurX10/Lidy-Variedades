@@ -1,0 +1,136 @@
+/* Estilos Lidy Variedades */
+.root {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-background-color: #f8fafc;
+}
+
+/* Header */
+.header-box {
+    -fx-background-color: linear-gradient(to right, #1e293b, #334155);
+    -fx-padding: 16px 20px;
+}
+
+.header-title {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.header-subtitle {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 13px;
+}
+
+/* Toolbar */
+.toolbar-box {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 12px 20px;
+}
+
+.search-field {
+    -fx-background-color: #f1f5f9;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px 12px;
+    -fx-font-size: 13px;
+}
+.search-field:focused {
+    -fx-border-color: #3b82f6;
+    -fx-background-color: white;
+}
+
+/* Botoes */
+.btn-primary {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+.btn-primary:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+.btn-secondary {
+    -fx-background-color: white;
+    -fx-text-fill: #475569;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 13px;
+    -fx-padding: 8px 14px;
+    -fx-cursor: hand;
+}
+.btn-secondary:hover {
+    -fx-background-color: #f1f5f9;
+}
+
+.btn-danger {
+    -fx-background-color: #fee2e2;
+    -fx-text-fill: #dc2626;
+    -fx-border-color: #fca5a5;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 13px;
+    -fx-padding: 8px 14px;
+    -fx-cursor: hand;
+}
+.btn-danger:hover {
+    -fx-background-color: #fecaca;
+}
+
+/* Tabela de Produtos */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-text-fill: #475569;
+    -fx-font-size: 12px;
+    -fx-padding: 10px 6px;
+}
+
+.table-row-cell {
+    -fx-cell-size: 38px;
+    -fx-font-size: 13px;
+    -fx-border-color: transparent transparent #f1f5f9 transparent;
+}
+.table-row-cell:odd {
+    -fx-background-color: #fafbfc;
+}
+.table-row-cell:hover {
+    -fx-background-color: #f1f5f9;
+}
+.table-row-cell:selected {
+    -fx-background-color: #e0e7ff;
+    -fx-text-fill: #1e1b4b;
+}
+
+/* Footer / Barra de Status */
+.footer-box {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 8px 20px;
+}
+
+.status-label {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 12px;
+}

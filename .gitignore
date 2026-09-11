@@ -1,0 +1,17 @@
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Build outputs
+target/
+*.class
+*.jar
+!.mvn/wrapper/*.jar
+
+# Environment
+.env
