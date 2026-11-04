@@ -45,7 +45,9 @@ public class ProdutoService {
                 .uri(URI.create(BASE_URL + "/produtos"))
                 .GET()
                 .header("Accept", "application/json")
+                .header("X-Desktop-Auth", ApiCredentials.headerValue())
                 .build();
+                
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
@@ -65,6 +67,7 @@ public class ProdutoService {
                .uri(URI.create(BASE_URL + "/produtos/buscar?nome=" + encodedNome))
                .GET()
                .header("Accept", "application/json")
+               .header("X-Desktop-Auth", ApiCredentials.headerValue())
                .build();
 
        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -86,6 +89,7 @@ public class ProdutoService {
                 .uri(URI.create(BASE_URL + "/produtos"))
                 .header("content-Type", "application/json")
                 .header("Accept", "application/json")
+                .header("X-Desktop-Auth", ApiCredentials.headerValue())
                 .POST(HttpRequest.BodyPublishers.ofString(jsonBody, StandardCharsets.UTF_8))
                 .build();
 
@@ -107,6 +111,7 @@ public class ProdutoService {
                 .uri(URI.create(BASE_URL + "/produtos/" + id))
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
+                .header("X-Desktop-Auth", ApiCredentials.headerValue())
                 .PUT(HttpRequest.BodyPublishers.ofString(jsonBody, StandardCharsets.UTF_8))
                 .build();
 
@@ -124,6 +129,7 @@ public class ProdutoService {
     public boolean excluir(Long id) throws IOException, InterruptedException{
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + "/produtos/" + id))
+                .header("X-Desktop-Auth", ApiCredentials.headerValue())
                 .DELETE()
                 .build();
 
@@ -139,6 +145,7 @@ public class ProdutoService {
                     .uri(URI.create(BASE_URL + "/categorias"))
                     .GET()
                     .header("Accept", "application/json")
+                    .header("X-Desktop-Auth", ApiCredentials.headerValue())
                     .build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -158,6 +165,7 @@ public class ProdutoService {
                     .uri(URI.create(BASE_URL + "/marcas"))
                     .GET()
                     .header("Accept", "application/json")
+                    .header("X-Desktop-Auth", ApiCredentials.headerValue())
                     .build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());

@@ -1,0 +1,63 @@
+.localizacao-page {
+  display: grid;
+  min-height: 55vh;
+  place-items: center;
+  padding: 48px 20px;
+  background: #fbf8fa;
+  font-family: Arial, sans-serif;
+}
+
+.localizacao-card {
+  width: min(100%, 620px);
+  padding: 36px;
+  border: 1px solid #e6dfe4;
+  border-radius: 18px;
+  background: #fff;
+  text-align: center;
+}
+
+.localizacao-card > svg {
+  width: 30px;
+  height: 30px;
+  color: #c90062;
+}
+
+.localizacao-card h1 {
+  margin: 14px 0;
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.localizacao-card p {
+  margin: 10px 0;
+  color: #6d646c;
+  line-height: 1.6;
+}
+
+.localizacao-card a {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: #c90062;
+  color: #fff;
+  text-decoration: none;
+}
+
+.localizacao-card a:hover {
+  background: #a90052;
+}
+
+@media (max-width: 520px) {
+  .localizacao-page {
+    padding: 28px 16px;
+  }
+
+  .localizacao-card {
+    padding: 26px 20px;
+  }
+
+  .localizacao-card a {
+    width: 100%;
+  }
+}

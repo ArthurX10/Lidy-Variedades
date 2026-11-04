@@ -2,7 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -11,62 +15,182 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="600.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lidyvariedadesdesktop.HelloController">
-    <!-- Topo: Cabecalho e Barra de Ferramentas -->
+<BorderPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lidyvariedadesdesktop.HelloController">
+    <!-- Topo Fixo: Cabeçalho -->
     <top>
-        <VBox>
-            <HBox alignment="CENTER_LEFT" styleClass="header-box">
-                <VBox spacing="2.0">
-                    <Label styleClass="header-title" text="Lidy Variedades" />
-                    <Label styleClass="header-subtitle" text="Sistema de Gestão &amp; Controle de Estoque" />
-                </VBox>
-                <Region HBox.hgrow="ALWAYS" />
-                <Label fx:id="lblConexao" style="-fx-text-fill: #4ade80; -fx-font-weight: bold; -fx-font-size: 12px;" text="● Conectado à API" />
-            </HBox>
-
-            <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="toolbar-box">
-                <TextField fx:id="txtPesquisa" prefWidth="300.0" promptText="Pesquisar produto pelo nome..." styleClass="search-field" />
-                <Button onAction="#onPesquisar" styleClass="btn-secondary" text="🔍 Buscar" />
-                <Button onAction="#onLimparPesquisa" styleClass="btn-secondary" text="Limpar" />
-
-                <Region HBox.hgrow="ALWAYS" />
-
-                <Button onAction="#onCarregarProdutos" styleClass="btn-secondary" text="🔄 Atualizar" />
-                <Button onAction="#onNovoProduto" styleClass="btn-primary" text="+ Novo Produto" />
-                <Button onAction="#onExcluirProduto" styleClass="btn-danger" text="🗑 Excluir" />
-            </HBox>
-        </VBox>
+        <HBox alignment="CENTER_LEFT" styleClass="header-box">
+            <VBox spacing="2.0">
+                <Label styleClass="header-title" text="Lidy Variedades" />
+                <Label styleClass="header-subtitle" text="Sistema de Gestão &amp; Controle de Estoque" />
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblConexao" style="-fx-text-fill: #4ade80; -fx-font-weight: bold; -fx-font-size: 12px;" text="● Conectado à API" />
+        </HBox>
     </top>
 
-    <!-- Centro: Tabela de Produtos -->
+    <!-- Centro: Abas -->
     <center>
-        <VBox spacing="10.0">
-            <padding>
-                <Insets bottom="12.0" left="20.0" right="20.0" top="12.0" />
-            </padding>
-            <TableView fx:id="tabelaProdutos" VBox.vgrow="ALWAYS">
-                <columns>
-                    <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
-                    <TableColumn fx:id="colCodigo" prefWidth="120.0" text="Cód. Referência" />
-                    <TableColumn fx:id="colNome" prefWidth="250.0" text="Nome do Produto" />
-                    <TableColumn fx:id="colCategoria" prefWidth="120.0" text="Categoria" />
-                    <TableColumn fx:id="colMarca" prefWidth="120.0" text="Marca" />
-                    <TableColumn fx:id="colPrecoCusto" prefWidth="100.0" text="Preço Custo (R$)" />
-                    <TableColumn fx:id="colPrecoVenda" prefWidth="110.0" text="Preço Venda (R$)" />
-                    <TableColumn fx:id="colEstoque" prefWidth="80.0" text="Estoque" />
-                    <TableColumn fx:id="colEstoqueMinimo" prefWidth="90.0" text="Est. Mínimo" />
-                </columns>
-                <columnResizePolicy>
-                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                </columnResizePolicy>
-            </TableView>
-        </VBox>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <!-- ABA 1: PRODUTOS -->
+                <Tab text="📦 Produtos">
+                    <VBox spacing="10.0">
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="toolbar-box">
+                            <TextField fx:id="txtPesquisa" prefWidth="300.0" promptText="Pesquisar produto pelo nome..." styleClass="search-field" />
+                            <Button onAction="#onPesquisar" styleClass="btn-secondary" text="🔍 Buscar" />
+                            <Button onAction="#onLimparPesquisa" styleClass="btn-secondary" text="Limpar" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Button onAction="#onCarregarProdutos" styleClass="btn-secondary" text="🔄 Atualizar" />
+                            <Button onAction="#onAdicionarEstoque" styleClass="btn-secondary" text="📦 + Estoque" />
+                            <Button onAction="#onNovoProduto" styleClass="btn-primary" text="+ Novo Produto" />
+                            <Button onAction="#onExcluirProduto" styleClass="btn-danger" text="🗑 Excluir" />
+                        </HBox>
+                        <VBox VBox.vgrow="ALWAYS" style="-fx-padding: 0 20px 10px 20px;">
+                            <TableView fx:id="tabelaProdutos" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
+                                    <TableColumn fx:id="colCodigo" prefWidth="120.0" text="Cód. Referência" />
+                                    <TableColumn fx:id="colNome" prefWidth="220.0" text="Nome do Produto" />
+                                    <TableColumn fx:id="colCategoria" prefWidth="110.0" text="Categoria" />
+                                    <TableColumn fx:id="colMarca" prefWidth="110.0" text="Marca" />
+                                    <TableColumn fx:id="colPrecoCusto" prefWidth="95.0" text="Preço Custo (R$)" />
+                                    <TableColumn fx:id="colPrecoVenda" prefWidth="105.0" text="Preço Venda (R$)" />
+                                    <TableColumn fx:id="colEstoque" prefWidth="75.0" text="Estoque" />
+                                    <TableColumn fx:id="colEstoqueMinimo" prefWidth="85.0" text="Est. Mínimo" />
+                                </columns>
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                </columnResizePolicy>
+                            </TableView>
+                        </VBox>
+                    </VBox>
+                </Tab>
+
+                <!-- ABA 2: CLIENTES -->
+                <Tab text="👥 Clientes">
+                    <VBox spacing="10.0">
+                        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="toolbar-box">
+                            <TextField fx:id="txtPesquisaCliente" prefWidth="300.0" promptText="Pesquisar cliente pelo nome..." styleClass="search-field" />
+                            <Button onAction="#onPesquisarCliente" styleClass="btn-secondary" text="🔍 Buscar" />
+                            <Button onAction="#onLimparPesquisaCliente" styleClass="btn-secondary" text="Limpar" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Button onAction="#onCarregarClientes" styleClass="btn-secondary" text="🔄 Atualizar" />
+                            <Button onAction="#onNovoCliente" styleClass="btn-primary" text="+ Novo Cliente" />
+                            <Button onAction="#onExcluirCliente" styleClass="btn-danger" text="🗑 Excluir" />
+                        </HBox>
+                        <VBox VBox.vgrow="ALWAYS" style="-fx-padding: 0 20px 10px 20px;">
+                            <TableView fx:id="tabelaClientes" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="colClienteId" prefWidth="60.0" text="ID" />
+                                    <TableColumn fx:id="colClienteNome" prefWidth="300.0" text="Nome Completo" />
+                                    <TableColumn fx:id="colClienteTelefone" prefWidth="180.0" text="Telefone" />
+                                    <TableColumn fx:id="colClienteEndereco" prefWidth="350.0" text="Endereço" />
+                                </columns>
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                </columnResizePolicy>
+                            </TableView>
+                        </VBox>
+                    </VBox>
+                </Tab>
+
+                <!-- ABA 3: REALIZAR VENDA (CAIXA / PDV) -->
+                <Tab text="🛒 Realizar Venda">
+                    <VBox spacing="10.0">
+                        <!-- Painel Superior de Adição de Itens -->
+                        <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="toolbar-box">
+                            <Label text="Cliente:" style="-fx-font-weight: bold;" />
+                            <ComboBox fx:id="comboClienteVenda" prefWidth="200.0" promptText="Selecione o Cliente (opcional)" />
+                            
+                            <Label text="Produto:" style="-fx-font-weight: bold;" />
+                            <ComboBox fx:id="comboProdutoVenda" prefWidth="220.0" promptText="Selecione o Produto" />
+                            
+                            <Label fx:id="lblEstoqueDisponivel" text="Estoque: -" style="-fx-text-fill: #64748b; -fx-font-weight: bold;" />
+                            
+                            <Label text="Qtd:" style="-fx-font-weight: bold;" />
+                            <TextField fx:id="txtQtdItem" text="1" prefWidth="55.0" styleClass="search-field" />
+                            
+                            <Button onAction="#onAdicionarItemCarrinho" styleClass="btn-primary" text="+ Adicionar Item" />
+                        </HBox>
+
+                        <!-- Tabela do Carrinho -->
+                        <VBox VBox.vgrow="ALWAYS" style="-fx-padding: 0 20px 10px 20px;">
+                            <TableView fx:id="tabelaCarrinho" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="colCarrinhoProduto" prefWidth="350.0" text="Produto" />
+                                    <TableColumn fx:id="colCarrinhoQtd" prefWidth="100.0" text="Qtd" />
+                                    <TableColumn fx:id="colCarrinhoPreco" prefWidth="140.0" text="Preço Unit. (R$)" />
+                                    <TableColumn fx:id="colCarrinhoSubtotal" prefWidth="150.0" text="Subtotal (R$)" />
+                                </columns>
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                </columnResizePolicy>
+                            </TableView>
+                        </VBox>
+
+                        <!-- Painel Inferior de Fechamento -->
+                        <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="toolbar-box">
+                            <Button onAction="#onRemoverItemCarrinho" styleClass="btn-danger" text="🗑 Remover Item" />
+                            <Button onAction="#onLimparCarrinho" styleClass="btn-secondary" text="Limpar Venda" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label text="Pagamento:" style="-fx-font-weight: bold;" />
+                            <ComboBox fx:id="comboFormaPagamento" prefWidth="160.0" promptText="Forma de Pagamento" />
+                            <Label fx:id="lblTotalVenda" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #16a34a;" text="TOTAL: R$ 0,00" />
+                            <Button onAction="#onFinalizarVenda" styleClass="btn-primary" style="-fx-font-size: 14px; -fx-padding: 10px 20px;" text="✅ Concluir Venda" />
+                        </HBox>
+                    </VBox>
+                </Tab>
+
+
+                 <!-- ABA 4: Aba de Vendas realizadas, total de vendas/Lucro-->
+                <Tab text="Vendas">
+                    <VBox spacing="10.0">
+
+                        <HBox styleClass="toolbar-box">
+                            <Label text="Período:" style="-fx-font-weight: bold;" />
+                            <DatePicker fx:id="dateInicio" promptText="Data Inicial" />
+                            <DatePicker fx:id="dateFim" promptText="Data Final" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Button onAction="#onFiltrarVendas" styleClass="btn-secondary" text="Filtrar por Período" />
+                            <Button onAction="#onRecarregarVendas" styleClass="btn-secondary" text="🔄 Atualizar" />
+                        </HBox>
+
+                        <VBox VBox.vgrow="ALWAYS" style="-fx-padding: 0 20px 10px 20px;">
+                            <TableView fx:id="tabelaVendas" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="colVendaId" prefWidth="60.0" text="ID" />
+                                    <TableColumn fx:id="colVendaData" prefWidth="120.0" text="Data/Hora" />
+                                    <TableColumn fx:id="colVendaCliente" prefWidth="250.0" text="Cliente" />
+                                    <TableColumn fx:id="colVendaPagamento" prefWidth="120.0" text="Pagamento" />
+                                    <TableColumn fx:id="colVendaTotal" prefWidth="130.0" text="Total (R$)" />
+                                    <TableColumn fx:id="colVendaLucro" prefWidth="120.0" text="Lucro (R$)" />
+                                </columns>
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                </columnResizePolicy>
+                            </TableView>
+                        </VBox>
+
+                        <!-- Resumo Financeiro (Estilo do Cartão) -->
+                        <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-padding: 15px 20px; -fx-background-color: #ffffff; -fx-border-radius: 8px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 2);">
+                            <Label text="Resumo do Período:" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label fx:id="lblTotalVendas" style="-fx-text-fill: #3b82f6; -fx-font-weight: bold; -fx-font-size: 18px;" text="Total Vendido: R$ 0,00" />
+                            <Region maxWidth="30.0" />
+                            <Label fx:id="lblTotalLucro" style="-fx-text-fill: #16a34a; -fx-font-weight: bold; -fx-font-size: 18px;" text="Lucro Total: R$ 0,00" />
+                        </HBox>
+    
+                    </VBox>
+                </Tab>
+                 
+            </tabs>
+        </TabPane>
     </center>
 
-    <!-- Rodape: Barra de Status -->
+    <!-- Rodapé Fixo: Barra de Status -->
     <bottom>
         <HBox alignment="CENTER_LEFT" styleClass="footer-box">
-            <Label fx:id="lblStatus" styleClass="status-label" text="Carregando produtos..." />
+            <Label fx:id="lblStatus" styleClass="status-label" text="Pronto." />
             <Region HBox.hgrow="ALWAYS" />
             <Label styleClass="status-label" text="Backend: http://localhost:8080" />
         </HBox>

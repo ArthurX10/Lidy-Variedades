@@ -3,6 +3,8 @@ package com.loja.LidyVariedades.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Min;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -18,6 +20,12 @@ public class Produto {
     @Column(nullable = false)
     private String nome;
 
+    @Column(columnDefinition = "TEXT")
+    private String descricao;
+
+    @Column(name = "imagem_url", length = 2048)
+    private String imagemUrl;
+
     @ManyToOne
     @JoinColumn(name = "marca_id")
     private Marca marca;
@@ -30,17 +38,25 @@ public class Produto {
     private String codigoReferencia;
 
     @NotNull
+    @DecimalMin("0.0")
     @Column(name = "preco_custo", nullable = false)
     private BigDecimal precoCusto = BigDecimal.ZERO;
 
     @NotNull
+    @DecimalMin("0.0")
     @Column(name = "preco_venda", nullable = false)
     private BigDecimal precoVenda = BigDecimal.ZERO;
 
+    @DecimalMin("0.0")
+    @Column(name = "preco_promocional")
+    private BigDecimal precoPromocional;
+
     @NotNull
+    @Min(0)
     @Column(name = "quantidade_estoque", nullable = false)
     private Integer quantidadeEstoque = 0;
 
+    @Min(0)
     @Column(name = "estoque_minimo", nullable = false)
     private Integer estoqueMinimo = 0;
 
@@ -64,6 +80,22 @@ public class Produto {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getImagemUrl() {
+        return imagemUrl;
+    }
+
+    public void setImagemUrl(String imagemUrl) {
+        this.imagemUrl = imagemUrl;
     }
 
     public Marca getMarca() {
@@ -104,6 +136,14 @@ public class Produto {
 
     public void setPrecoVenda(BigDecimal precoVenda) {
         this.precoVenda = precoVenda;
+    }
+
+    public BigDecimal getPrecoPromocional() {
+        return precoPromocional;
+    }
+
+    public void setPrecoPromocional(BigDecimal precoPromocional) {
+        this.precoPromocional = precoPromocional;
     }
 
     public Integer getQuantidadeEstoque() {

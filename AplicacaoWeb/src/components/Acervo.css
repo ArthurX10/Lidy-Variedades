@@ -1,0 +1,119 @@
+.acervo-section {
+  padding: 40px 64px 80px 64px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.acervo-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.acervo-tag {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-style: italic;
+  color: #B01254;
+  margin-bottom: 4px;
+}
+
+.acervo-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  color: #1A1118;
+  font-weight: 500;
+  margin: 0;
+}
+
+.acervo-linha-destaque {
+  width: 360px;
+  height: 1px;
+  background-color: #666666;
+  margin-top: 10px;
+}
+
+/* Pílulas de filtro */
+.acervo-filtros {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filtro-pill {
+  border: none;
+  background-color: #FCE8EE;
+  color: #333333;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filtro-pill:hover {
+  background-color: #f7d2de;
+}
+
+.filtro-pill.ativo {
+  background-color: #B01254;
+  color: #ffffff;
+}
+
+/* Grade com 4 produtos */
+.acervo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+.acervo-section {
+  scroll-margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .acervo-section {
+    padding: 36px 28px 56px;
+  }
+
+  .acervo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .acervo-section {
+    padding: 32px 16px 44px;
+  }
+
+  .acervo-tag {
+    font-size: 26px;
+  }
+
+  .acervo-header h2 {
+    font-size: 30px;
+  }
+
+  .acervo-linha-destaque {
+    width: min(100%, 280px);
+  }
+
+  .acervo-filtros {
+    gap: 8px;
+    margin-bottom: 26px;
+  }
+
+  .filtro-pill {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .acervo-grid {
+    gap: 12px;
+  }
+}

@@ -1,0 +1,80 @@
+.banner-oferta-container {
+  width: 100%;
+  background-color: #B01254;
+  color: #ffffff;
+  padding: 48px 4rem;
+  margin: 40px 0 60px 0;
+}
+
+.banner-oferta-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.banner-oferta-texto h2 {
+  font-family: sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.banner-oferta-texto p {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-style: italic;
+  color: #f7d4e2;
+  margin: 0;
+}
+
+.banner-oferta-btn {
+  display: inline-flex;
+  background-color: #ffffff;
+  color: #B01254;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.banner-oferta-btn:hover {
+  transform: scale(1.05);
+  background-color: #fff0f5;
+}
+
+@media (max-width: 700px) {
+  .banner-oferta-container {
+    margin: 28px 0 40px;
+    padding: 34px 22px;
+  }
+
+  .banner-oferta-content {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .banner-oferta-texto h2 {
+    font-size: clamp(26px, 7vw, 34px);
+  }
+
+  .banner-oferta-texto p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .banner-oferta-btn {
+    justify-content: center;
+    width: 100%;
+  }
+}

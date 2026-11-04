@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Playfair Display", "Roboto", sans-serif;
+    background-color: #f7f7f9;
+    color: #1a1118;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-width: 320px;
+}
+
+img {
+    max-width: 100%;
+}

@@ -1,0 +1,72 @@
+.destaques-section{
+    padding: 40px 64px 60px 64px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.destaques-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    
+}
+
+.destaques-header h2{
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    color: #1a1118;
+    font-weight: 500;
+}
+
+.ver-produtos{
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: #444444;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+
+.ver-produtos:hover{
+    color: #c2185b;
+    text-decoration: underline;
+}
+
+.destaques-grid{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0 ,1fr));
+    gap: 24px;
+}
+
+@media (max-width: 900px) {
+    .destaques-section {
+        padding: 36px 28px 48px;
+    }
+
+    .destaques-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 520px) {
+    .destaques-section {
+        padding: 30px 16px 40px;
+    }
+
+    .destaques-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .destaques-header h2 {
+        font-size: 27px;
+    }
+
+    .destaques-grid {
+        gap: 12px;
+    }
+}

@@ -1,0 +1,224 @@
+.config-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.config-dashboard {
+  display: flex;
+  flex: 1;
+  min-height: 520px;
+  background: #fbf8fa;
+  font-family: Arial, sans-serif;
+}
+
+.config-container {
+  width: min(100% - 48px, 1280px);
+  flex: 1;
+  margin: 0 auto;
+  padding: 32px 28px 48px;
+}
+
+.config-heading {
+  margin-bottom: 24px;
+}
+
+.config-heading h1 {
+  margin: 0 0 6px;
+  color: #1a1118;
+  font-family: Georgia, serif;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 400;
+}
+
+.config-heading p {
+  margin: 0;
+  color: #817881;
+  font-family: Georgia, serif;
+  font-size: 15px;
+}
+
+.config-sections {
+  display: grid;
+  gap: 18px;
+}
+
+.config-form-fields {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+.config-card {
+  display: grid;
+  gap: 20px;
+  padding: 22px 24px;
+  border: 1px solid #e6dfe4;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgb(26 17 24 / 4%);
+}
+
+.config-card-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  color: #c90062;
+}
+
+.config-card-heading > svg {
+  width: 21px;
+  height: 21px;
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.config-card-heading h2 {
+  margin: 0 0 5px;
+  color: #1a1118;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.config-card-heading p {
+  margin: 0;
+  color: #817881;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.config-field {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+}
+
+.config-field label {
+  color: #383039;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.config-field input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #d5ced4;
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  color: #1a1118;
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.config-field input::placeholder {
+  color: #a39ba2;
+}
+
+.config-field input:focus {
+  border-color: #c90062;
+  box-shadow: 0 0 0 3px rgb(201 0 98 / 12%);
+}
+
+.config-field small {
+  color: #817881;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.config-toggle {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 10px;
+  color: #383039;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.config-toggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: #c90062;
+  cursor: pointer;
+}
+
+.config-social-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.config-save-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 22px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 8px;
+  background: #c90062;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.config-save-button:hover {
+  transform: translateY(-1px);
+  background: #a90052;
+}
+
+.config-save-button:disabled {
+  transform: none;
+  background: #817881;
+  cursor: wait;
+}
+
+.config-form-message {
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.config-form-error {
+  color: #a11b31;
+}
+
+.config-form-success {
+  color: #267345;
+}
+
+.config-save-button:focus-visible {
+  outline: 3px solid rgb(201 0 98 / 30%);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .config-dashboard {
+    flex-direction: column;
+  }
+
+  .config-container {
+    width: 100%;
+    padding: 24px 16px 36px;
+  }
+
+  .config-card {
+    padding: 18px 16px;
+  }
+
+  .config-social-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .config-save-button {
+    width: 100%;
+  }
+}

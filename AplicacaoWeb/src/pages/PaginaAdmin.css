@@ -1,0 +1,87 @@
+.admin-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-container {
+    display: grid;
+    flex: 1;
+    place-items: center;
+    padding: 32px 16px;
+    background: #fffafb;
+}
+
+.admin-card {
+    width: min(100%, 350px);
+    min-height: 300px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 3px rgb(0 0 0 / 20%);
+    font-family: Arial, sans-serif;
+
+
+}
+
+.admin-card-header {
+    padding: 18px 14px;
+    background: #1a1118;
+    color: #fff;
+    text-align: center;
+}
+
+.admin-card-header h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+.admin-card-header p {
+    font-size: 10px;
+}
+
+.admin-card-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 22px 20px;
+}
+
+
+.admin-card-fields label{
+    font-size: 12px;
+}
+
+
+.admin-card-fields input{
+    width: 100%;
+    height: 38px;
+    padding: 0 12px;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+}
+
+.admin-card-fields button {
+    height: 42px;
+    margin-top: 10px;
+    border: 0;
+    border-radius: 999px;
+    background: #e50070;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    color: #fff; 
+    font-size: 16px;
+}
+
+.admin-form-error {
+    color: #a11b31;
+    font-size: 12px;
+}
+
+.admin-card-fields button:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}

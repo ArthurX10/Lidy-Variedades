@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = "/marcas", produces = "application/json")
 public class MarcaController {
@@ -21,4 +20,3 @@ public class MarcaController {
     }
     
 }
-

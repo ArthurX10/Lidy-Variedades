@@ -24,3 +24,4 @@ public class HelloApplication extends Application {
         stage.setMinHeight(500);
         stage.show();
     }
+}

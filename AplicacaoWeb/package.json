@@ -1,0 +1,41 @@
+{
+  "name": "aplicacaoweb",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint . && eslint .",
+    "lint:oxlint": "oxlint .",
+    "lint:eslint": "eslint .",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@primeicons/react": "^8.0.2",
+    "@primereact/ui": "^11.2.2",
+    "@primeuix/themes": "^3.1.0",
+    "primeicons": "^6.0.1",
+    "primereact": "^10.9.9",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-icons": "^5.7.0",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "eslint": "^10.11.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.12.0",
+    "oxlint": "^1.86.0",
+    "prettier": "^3.9.9",
+    "vite": "^8.3.0"
+  }
+}

@@ -1,0 +1,12 @@
+.api-status-errors {
+  position: relative;
+  z-index: 1;
+}
+
+.api-status-error {
+  padding: 12px 24px;
+  background: #fff0f1;
+  color: #a11b31;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}

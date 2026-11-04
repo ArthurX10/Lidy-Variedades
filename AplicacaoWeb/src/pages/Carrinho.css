@@ -1,0 +1,151 @@
+.carrinho-page {
+  min-height: 55vh;
+  padding: 36px clamp(16px, 5vw, 64px) 64px;
+  background: #fbf8fa;
+  font-family: Arial, sans-serif;
+}
+
+.carrinho-page h1 {
+  margin-bottom: 24px;
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.carrinho-vazio,
+.carrinho-lista,
+.carrinho-total {
+  padding: 22px;
+  border: 1px solid #e6dfe4;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.carrinho-vazio a {
+  display: inline-block;
+  margin-top: 14px;
+  color: #c90062;
+}
+
+.carrinho-lista {
+  display: grid;
+  gap: 18px;
+}
+
+.carrinho-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #eee8ec;
+}
+
+.carrinho-item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.carrinho-item > img {
+  width: 84px;
+  height: 84px;
+  border-radius: 8px;
+  background: #f7f4f6;
+  object-fit: contain;
+}
+
+.carrinho-item-info {
+  display: grid;
+  flex: 1;
+  gap: 7px;
+}
+
+.carrinho-item-info h2 {
+  font-size: 16px;
+}
+
+.carrinho-item-info p {
+  color: #6d646c;
+  font-size: 13px;
+}
+
+.carrinho-quantidade {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 12px;
+}
+
+.carrinho-quantidade button,
+.carrinho-remover {
+  padding: 6px 10px;
+  border: 1px solid #d5ced4;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.carrinho-quantidade button:disabled {
+  color: #777074;
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.carrinho-estoque {
+  color: #6d646c;
+  font-size: 12px;
+}
+
+.carrinho-remover {
+  border-color: transparent;
+  color: #a11b31;
+}
+
+.carrinho-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-top: 18px;
+}
+
+.carrinho-total a {
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: #c90062;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .carrinho-page {
+    padding: 28px 16px 42px;
+  }
+
+  .carrinho-vazio,
+  .carrinho-lista,
+  .carrinho-total {
+    padding: 16px;
+  }
+
+  .carrinho-item {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .carrinho-item-info {
+    min-width: calc(100% - 104px);
+  }
+
+  .carrinho-item > strong {
+    margin-left: 96px;
+  }
+
+  .carrinho-total {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .carrinho-total a {
+    padding: 12px;
+  }
+}
