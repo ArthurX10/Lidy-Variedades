@@ -13,9 +13,9 @@ export default function Carrinho() {
   const mensagem = encodeURIComponent([
     'Olá! Gostaria de fazer um pedido:',
     ...items.map((item) => (
-      `- ${item.nome} (${item.quantity}x): ${formatarPreco(
-        precoEfetivo(item) * item.quantity,
-      )}`
+      `- ${item.nome} (${item.quantity}x)\n  Valor unitário: ${formatarPreco(
+        precoEfetivo(item),
+      )}\n  Subtotal: ${formatarPreco(precoEfetivo(item) * item.quantity)}`
     )),
     `Total: ${formatarPreco(total)}`,
   ].join('\n'));
