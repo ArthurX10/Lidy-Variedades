@@ -46,6 +46,11 @@ nenhum produto cadastrado; deixe a opção desativada em produção.
 
 ### 2. Executar o Backend
 
+No Render, use o runtime **Docker**, deixe o campo **Root Directory** vazio (raiz
+do repositório) e defina o caminho do Dockerfile como `backend/Dockerfile`. O
+contexto de build precisa ser a raiz do repositório, pois o Dockerfile copia os
+arquivos de `backend/`.
+
 ```bash
 cd backend
 .\mvnw.cmd spring-boot:run
