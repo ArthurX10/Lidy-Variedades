@@ -4,15 +4,18 @@ Sistema de gestão para a loja **Lidy Variedades**, composto por:
 
 | Módulo | Diretório | Tecnologia |
 |--------|-----------|------------|
-| API / Backend | `backend/` | Spring Boot 4 + Java 26 + PostgreSQL (Neon) |
+| API / Backend | `backend/` | Spring Boot 4 + Java 21 + PostgreSQL (Neon) |
 | Loja Web | `AplicacaoWeb/` | React + Vite |
-| Aplicativo Desktop | `desktop/` | JavaFX 24 + Java 26 |
+| Aplicativo Desktop | `desktop/` | JavaFX 21 + Java 21 |
 
 ## Pré-requisitos
 
-- **Java 26+** (JDK)
+- **Java 21** (JDK)
 - **Maven 3.9+** (ou use o wrapper `mvnw` incluído)
 - **PostgreSQL** (banco hospedado no [Neon](https://neon.tech))
+
+Configure `JAVA_HOME` para apontar para o JDK 21. No Windows, reinicie o terminal
+ou a IDE depois de alterar essa variável.
 
 ## Configuração
 
