@@ -21,11 +21,10 @@ ou a IDE depois de alterar essa variável.
 
 A API é hospedada no Render (`https://lidy-variedades.onrender.com`) e a loja pode
 ser publicada na Vercel. Nas variáveis de ambiente do projeto frontend na Vercel,
-configure `VITE_API_URL` com a URL base da API. No serviço da API no Render,
-configure `APP_CORS_ALLOWED_ORIGIN` com a origem exata da loja publicada
-(por exemplo, `https://seu-projeto.vercel.app`, sem barra no final). Se também
-precisar liberar a loja local durante o desenvolvimento, informe as origens
-separadas por vírgula.
+configure `VITE_API_URL` com a URL base da API. O backend sempre permite a origem
+de produção `https://aplicacaoweb-eight.vercel.app`; para outros domínios ou para
+liberar origens adicionais, configure `APP_CORS_ALLOWED_ORIGIN` no serviço da API
+no Render com as origens exatas, separadas por vírgula e sem barras finais.
 
 ## Configuração
 

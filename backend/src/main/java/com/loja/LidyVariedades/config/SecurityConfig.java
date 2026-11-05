@@ -1,7 +1,8 @@
 package com.loja.LidyVariedades.config;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -26,6 +27,8 @@ import org.springframework.security.config.Customizer;
 
 @Configuration
 public class SecurityConfig {
+
+    private static final String PRODUCTION_FRONTEND_ORIGIN = "https://aplicacaoweb-eight.vercel.app";
 
     @Bean
     AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
@@ -108,13 +111,17 @@ public class SecurityConfig {
 
     @Bean
     CorsConfigurationSource corsConfigurationSource(
-        @Value("${app.cors.allowed-origin:http://localhost:5173,http://127.0.0.1:5173}") String allowedOrigins
+        @Value("${app.cors.allowed-origin:https://aplicacaoweb-eight.vercel.app,http://localhost:5173,http://127.0.0.1:5173}") String allowedOrigins
     ) {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.stream(allowedOrigins.split(","))
+        List<String> origins = new ArrayList<>(Arrays.stream(allowedOrigins.split(","))
             .map(String::trim)
             .filter(origin -> !origin.isEmpty())
             .toList());
+        if (!origins.contains(PRODUCTION_FRONTEND_ORIGIN)) {
+            origins.add(PRODUCTION_FRONTEND_ORIGIN);
+        }
+        configuration.setAllowedOrigins(origins);
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("Content-Type", "X-XSRF-TOKEN"));
         configuration.setAllowCredentials(true);

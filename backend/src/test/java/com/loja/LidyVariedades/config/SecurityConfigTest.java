@@ -17,5 +17,9 @@ class SecurityConfigTest {
             .getCorsConfiguration(request);
 
         assertEquals(secondOrigin, cors.checkOrigin(secondOrigin));
+        assertEquals(
+            "https://aplicacaoweb-eight.vercel.app",
+            cors.checkOrigin("https://aplicacaoweb-eight.vercel.app")
+        );
     }
 }
