@@ -19,7 +19,7 @@ import java.util.List;
 
 public class ClienteService {
 
-    private static final String BASE_URL="http://localhost:8080";
+    private static final String BASE_URL = ApiConfig.baseUrl();
     private final HttpClient client;
     private final Gson gson;
 

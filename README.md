@@ -17,6 +17,16 @@ Sistema de gestão para a loja **Lidy Variedades**, composto por:
 Configure `JAVA_HOME` para apontar para o JDK 21. No Windows, reinicie o terminal
 ou a IDE depois de alterar essa variável.
 
+## Publicação da API e da loja
+
+A API é hospedada no Render (`https://lidy-variedades.onrender.com`) e a loja pode
+ser publicada na Vercel. Nas variáveis de ambiente do projeto frontend na Vercel,
+configure `VITE_API_URL` com a URL base da API. No serviço da API no Render,
+configure `APP_CORS_ALLOWED_ORIGIN` com a origem exata da loja publicada
+(por exemplo, `https://seu-projeto.vercel.app`, sem barra no final). Se também
+precisar liberar a loja local durante o desenvolvimento, informe as origens
+separadas por vírgula.
+
 ## Configuração
 
 ### 1. Variáveis de ambiente (Backend)
@@ -65,8 +75,17 @@ Com o backend e o banco configurados, execute:
 ```powershell
 cd AplicacaoWeb
 npm install
+$env:VITE_API_URL = "http://localhost:8080"
 npm run dev
 ```
+
+Para executar o backend localmente com o frontend, defina também
+`APP_CORS_ALLOWED_ORIGIN=http://localhost:5173` e `APP_COOKIE_SECURE=false` no
+ambiente do backend.
+
+Sem `VITE_API_URL`, o frontend usa a API de produção do Render. Para publicar a
+loja na Vercel, configure essa variável no painel da Vercel com
+`https://lidy-variedades.onrender.com`.
 
 O gerenciamento de produtos fica em `/PaginaAdmin` e `/admin/produtos`. Os
 produtos cadastrados no banco alimentam também as páginas públicas da loja.
@@ -80,7 +99,15 @@ cd desktop
 .\mvnw.cmd javafx:run
 ```
 
-> O app Desktop espera que o backend esteja rodando na porta 8080.
+O desktop usa `https://lidy-variedades.onrender.com` por padrão. Para apontá-lo a
+um backend local, configure `LIDY_API_URL` antes de iniciá-lo:
+
+```powershell
+$env:LIDY_API_URL = "http://localhost:8080"
+```
+
+Quando `LIDY_API_URL` aponta para um endereço local, o launcher ainda tenta iniciar
+o backend empacotado se ele não estiver disponível.
 
 ## Estrutura do Projeto
 

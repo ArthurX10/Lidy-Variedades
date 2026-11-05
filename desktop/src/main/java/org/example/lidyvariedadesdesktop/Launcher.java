@@ -5,14 +5,18 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.URI;
 import java.net.Socket;
+
+import org.example.lidyvariedadesdesktop.service.ApiConfig;
 
 public class Launcher {
 
     private static Process backendProcess;
 
     public static void main(String[] args) {
-        if (!isBackendRodando()) {
+        if (ApiConfig.isLocal() && !isBackendRodando()) {
             iniciarBackend();
         }
 
@@ -20,7 +24,13 @@ public class Launcher {
     }
 
     private static boolean isBackendRodando() {
-        try (Socket socket = new Socket("localhost", 8080)) {
+        URI apiUri = ApiConfig.uri();
+        int port = apiUri.getPort();
+        if (port == -1) {
+            port = "https".equalsIgnoreCase(apiUri.getScheme()) ? 443 : 80;
+        }
+        try (Socket socket = new Socket()) {
+            socket.connect(new InetSocketAddress(apiUri.getHost(), port), 1500);
             return true;
         } catch (IOException e) {
             return false;

@@ -20,6 +20,8 @@ public class CorsConfig implements WebMvcConfigurer {
                         .map(String::trim)
                         .filter(origin -> !origin.isEmpty())
                         .toArray(String[]::new))
-                .allowedMethods("GET", "POST", "PUT", "DELETE");
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("Content-Type", "X-XSRF-TOKEN")
+                .allowCredentials(true);
     }
 }

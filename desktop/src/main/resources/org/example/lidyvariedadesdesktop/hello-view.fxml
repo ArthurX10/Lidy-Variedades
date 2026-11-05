@@ -192,7 +192,7 @@
         <HBox alignment="CENTER_LEFT" styleClass="footer-box">
             <Label fx:id="lblStatus" styleClass="status-label" text="Pronto." />
             <Region HBox.hgrow="ALWAYS" />
-            <Label styleClass="status-label" text="Backend: http://localhost:8080" />
+            <Label styleClass="status-label" text="Backend: endereço configurado" />
         </HBox>
     </bottom>
 </BorderPane>
