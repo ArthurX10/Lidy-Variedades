@@ -35,7 +35,7 @@ const PaginaProduto = ({
     .filter((item) => item.id !== produto.id)
     .slice(0, 4);
   const mensagemWhatsApp = encodeURIComponent(
-    `Olá! Tenho interesse no produto ${produto.nome}.`,
+    `Olá! Gostaria de fazer um pedido: ${produto.nome}. Total: ${produto.precoAtual}`,
   );
   const telefone = (settings?.whatsappNumber || '').replace(/\D/g, '');
 
